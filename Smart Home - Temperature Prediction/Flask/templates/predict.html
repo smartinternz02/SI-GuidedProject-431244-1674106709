@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        form {
+            text-align: center;
+            }
+            input[type = number] {
+            width: auto;
+            padding: 10px 15px;
+            margin: 10px 0;
+            box-sizing: border-box;
+         }
+         h4{
+            text-align: center;
+         }
+    </style>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Smart Home</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"/>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">Smart Home Temperature</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Welcome to Smart Home Temperature</h1>
+                <p class="lead"></p>
+               
+            </div>
+        </header>
+
+        <div>
+            <form action="{{url_for('output')}}" method="post">
+                <label for="CO2_room">CO2:</label>
+                <input type = 'number' label =  id = 'CO2_room' name = 'CO2_room', placeholder="CO2 in the room"><br>
+                <label for="Relative_humidity_room">Humidity:</label>
+                <input type = 'number' id = 'Relative_humidity_room' name = 'Relative_humidity_room', placeholder="Humidity in the room"><br>
+                <label for="Lighting_room">Lighting:</label>
+                <input type = 'number' id = 'Lighting_room' name = 'Lighting_room', placeholder="Lighting in the room"><br>
+                <label for="Meteo_Rain">Rain:</label>
+                <input type = 'number' id = 'Meteo_Rain' name = 'Meteo_Rain', placeholder="Rain in Last 15 Minutes"><br>
+                <label for="Meteo_Wind">Wind:</label>
+                <input type = 'number' id = 'Meteo_Wind' name = 'Meteo_Wind', placeholder="Wind at outside"><br>
+                <label for="Meteo_Sun_light_in_west_facade">Sunlight at West:</label>
+                <input type = 'number' id = 'Meteo_Sun_light_in_west_facade' name = 'Meteo_Sun_light_in_west_facade', placeholder="Sunlight at west side of home"><br>
+                <label for="Outdoor_relative_humidity_Sensor">Outdoor Humidity:</label>
+                <input type = 'number' id = 'Outdoor_relative_humidity_Sensor' name = 'Outdoor_relative_humidity_Sensor', placeholder="Humidity at outside"><br>
+                <input type="submit" value="Submit">
+            </form>
+
+           <h4>Your Room temperature will be {{prediction}} °C</h4>
+            
+        </div>
+
+        
+       
+        <!-- Contact section-->
+        <section id="contact">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Contact us</h2>
+                        <h4 style="text-align:center">TheSmartBridge</h4>
+                        <p class="lead">Bapuji Nagar Park, 2nd Floor, Plot No 132, Habsiguda Main Rd, above DCB bank, Nacharam, Hyderabad, Telangana 500076</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; www.sbsmarthomepred.com</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename = 'js/scripts.js')}}"></script>
+    </body>
+</html>
